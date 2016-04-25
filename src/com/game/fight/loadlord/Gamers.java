@@ -12,38 +12,38 @@ public class Gamers {
 	/**
 	 * 玩家唯一ID
 	 */
-	int id;
+	public int id;
 	/**
 	 * 玩家名称
 	 */
-	String name;
+	public String name;
 	/**
 	 * 玩家身份
 	 * 
 	 * "农民" / "地主"
 	 */
-	String status;
+	public String status;
 	/**
 	 * 玩家手里的牌
 	 */
-	List<String> pais;
+	public List<String> pais;
 
-	int[] paiInts;
+	public int[] paiInts;
 	/**
 	 * 玩家在游戏中的位置
 	 * 
 	 * "1" / "2" / "3"
 	 */
-	String position;
+	public String position;
 	/**
 	 * 玩家要出的牌
 	 */
-	int[] chuPai;
+	public int[] chuPai;
 	/**
 	 * 玩家在游行中的状态
 	 * 
 	 * "出牌" / "等待" / "胜利" / "失败"
 	 */
-	String operationStatus;
+	public String operationStatus;
 
 }

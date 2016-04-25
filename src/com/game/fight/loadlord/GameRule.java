@@ -657,7 +657,9 @@ public class GameRule {
 	/**
 	 * 是否为连对
 	 * 
-	 * @return
+	 * @param handPai
+	 *            有序的扑克牌数组（由小到大 / 由大到小）
+	 * @return true:是连对 false:不是连对
 	 */
 	private boolean isLiandui(int[] handPai) {
 		if (handPai.length % 2 != 0) {// 长度不是偶数
@@ -670,9 +672,9 @@ public class GameRule {
 			}
 		}
 		if (handPai[0] / 10 == 1) {// 有A
-			if (handPai[0] / 10 != handPai[1] / 10) {//
+			if (handPai[0] / 10 != handPai[1] / 10) {// 不是一对
 				return false;
-			} else if (handPai[handPai.length - 1] / 10 == 13) {// 必须有K
+			} else if (handPai[handPai.length - 1] / 10 == 13) {// 必须有牌K
 				int[] localHandPai = new int[handPai.length - 2];
 				for (int i = 0; i < localHandPai.length; i++) {
 					localHandPai[i] = handPai[i + 2];
@@ -682,12 +684,12 @@ public class GameRule {
 
 		}
 		// 分队对比
-		for (int i = 0; i < handPai.length - 1; i = i + 2) {
-			if (handPai[i] != handPai[i + 1]) {// 下标i与下标(i + 1)元素是一对
+		for (int i = 0; i < handPai.length - 1; i += 2) {
+			if (handPai[i] / 10 == handPai[i + 1] / 10) {// 下标i与下标(i + 1)元素是一对
 				if (i == handPai.length - 2) {// 最后两个元素
 					// 是连对
 					return true;
-				} else if (handPai[i + 1] / 10 + 1 != handPai[i + 2] / 10) {// 与下组元素不是连对
+				} else if (handPai[i] / 10 + 1 != handPai[i + 2] / 10) {// 与下一组牌不相连
 					// 不是连对
 					return false;
 				}
